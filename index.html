@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' type='text/css' href='linuxlibertine/stylesheet.css' />
+<link rel='stylesheet' type='text/css' href='linuxbiolinum/stylesheet.css' />
+
+<style>
+body {
+  background-color:white;
+  color:black;
+  font-family:"Linux Libertine", "Times", "Times New Roman", serif;
+  font-size:18pt;
+  line-height: 24pt;
+  text-align:justify;
+}
+.container {
+    margin-top: 10%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    max-width: 1000px;
+}
+
+h1 {
+    font-family:"Linux Biolinum", "Ariel", sans-serif;
+}
+
+h3 {
+    font-family:"Linux Biolinum", "Ariel", sans-serif;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+}
+
+a:hover {
+    border-bottom: 4px solid black;
+}
+
+em {
+    font-style:italic;
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP5KE3CKS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZP5KE3CKS3');
+</script>
+
+<title>DKLs.info</title>
+</head>
+<body>
+<div class="container">
+    <h1>DKLs.info</h1>
+    <p>This website collects information and resources related to the threshold ECDSA signing schemes of <a target="_blank" href="https://jackdoerner.net">Jack Doerner</a>, <a target="_blank" href="https://www.ykondi.net/">Yashvanth Kondi</a>, <a target="_blank" href="https://www.eysalee.com/">Eysa Lee</a>, and <a href="https://shelat.khoury.northeastern.edu/" target="_blank">abhi shelat</a>, otherwise known as DKLs. As of May 2023, we have a new paper available! We present a three-round protocol for threshold ECDSA signing with malicious security against a dishonest majority, which information-theoretically UC-realizes a standard threshold signing functionality, assuming ideal commitment and two-party multiplication primitives. You may find a complete description of the protocol, along with a full proof of security and closed-form cost analysis, in eprint <a target="_blank" href="https://eprint.iacr.org/2023/765">2023/765</a>.</p>
+
+    <p>Our new protocol was originally announced (in a now-superseded five-round variation) at IACR Real World Crypto 2023, as part of a talk that focused on the things we have learned via deployments and implementations of our previous works on this topic. The talk is available <a href="https://youtu.be/-d0Ny7NAG-w?t=2160" target="_blank">online</a>. We consider our original <em>t</em>-of-<em>n</em> and  2-of-<em>n</em> threshold ECDSA signing protocols to be subsumed. Nevertheless, the original <em>t</em>-of-<em>n</em> protocol is available as eprint <a target="_blank" href="https://eprint.iacr.org/2019/523">2019/523</a>, and the 2-of-<em>n</em> protocol is available in revised form as eprint <a target="_blank" href="https://eprint.iacr.org/2018/499">2018/499</a>.</p>
+
+    <p>In addition to our works on threshold ECDSA, we were joined by LaKyah Tyner for a paper on threshold BBS+ signing, which is useful for distributed anonymous credential issuance. This paper shares many techniques with our other works. It is available as eprint <a target="_blank" href="https://eprint.iacr.org/2023/602">2023/602</a>.</p>
+
+    <h3>Useful Auxilliary Papers and Techniques</h3>
+    <ul>
+        <li><em>Refresh When You Wake Up: Proactive Threshold Wallets with Offline Devices</em> (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>). This work proposes a mechanism that allows the parties in many 2-of-<em>n</em> ECDSA protocols (including ours) to <em>proactively</em> refresh their shares of the signing key and their other secret state, even if some of those parties are offline at the time of refresh. This provides a defense against so-called <em>mobile</em> adversaries.</li>
+    </ul>
+
+
+    <h3>Our Proof-of-Concept Open Source Implementations</h3>
+    <ul>
+        <li>DKLs23: Rust code coming soon.</li>
+        <li>DKLsT23: Rust code coming soon.</li>
+        <li>DKLs19 + DKLs18 with Proactive Key Refresh (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>): <a href="https://gitlab.com/neucrypt/mpecdsa">Rust code available</a> under the BSD license. Note that this library uses the KOS OT-extension protocol (<a href="https://eprint.iacr.org/2015/546" target="_blank">2015/546</a>), which we consider to be depricated (see <a href="https://eprint.iacr.org/2022/192" target="_blank">2022/192</a>).</li>
+    </ul>
+
+    <h3>Third-Party Open Source Implementations</h3>
+    <ul>
+        <li><a href="https://www.silencelaboratories.com/" target="_blank">Silence Laboratories</a>: DKLs23 with Proactive Key Refresh (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>). <a href="https://github.com/silence-laboratories/silent-shard-dkls23-ll" target="_blank">Rust code available</a> under a custom non-commercial license. Also available on <a href="https://www.npmjs.com/package/@silencelaboratories/dkls-wasm-ll-node" target="_blank">NPM</a>.</li>
+        <li><a href="https://www.dock.io/" target="_blank">Dock Network</a>: DKLsT23. <a href="https://github.com/docknetwork/crypto/tree/main/bbs_plus/src/threshold" target="_blank">Rust code available</a> under the Apache license.</li>
+        <li><a href="https://www.taurushq.com/" target="_blank">Taurus Group</a>: DKLs18. <a href="https://github.com/taurusgroup/multi-party-sig/tree/main/protocols/doerner" target="_blank">Go code available</a> under the Apache license.</li>
+        <li><a href="https://www.coinbase.com/" target="_blank">Coinbase</a>: DKLs18. <a href="https://github.com/coinbase/kryptology/tree/master/pkg/tecdsa/dkls/v1" target="_blank">Go code available</a> under the Apache license. Marked as deprecated by authors.</li>
+    </ul>
+
+    <h3>Proprietary Implementations</h3>
+    <ul>
+        <li>
+            <a href="https://www.blockdaemon.com/" target="_blank">BlockDaemon</a>: DKLs23 + DKLs19 + DKLs18. <a href="https://builder-vault-tsm.docs.blockdaemon.com/docs/mpc-protocols" target="_blank"> Information available.</a>
+        </li>
+        <li>
+            <a href="https://utila.io/" target="_blank">Utila</a>: DKLs23.
+        </li>
+        <li>
+            <a href="https://copper.co/" target="_blank">Copper</a>: DKLs23.
+        </li>
+        <li>
+            <a href="https://www.litprotocol.com/" target="_blank">Lit Protocol</a>: DKLsT23.
+        </li>
+        <li>
+            <a href="https://www.sodot.dev/" target="_blank">Sodot</a>: DKLs19. <a href="https://docs.sodot.dev/docs/cryptography/signature-scheme" target="_blank">Information available.</a>
+        <li>
+            <a href="https://web3auth.io/" target="_blank">Web3auth</a>: DKLs19. <a href="https://web3auth.io/docs/content-hub/blog/response-to-tsshock-and-bitforge" target="_blank">Information available.</a>
+        </li>
+        <li>
+            <a href="https://usa.visa.com" target="_blank">Visa</a>: DKLs19.
+        </li>
+    </ul>
+    <br/><br/>
+</div> 
+</body>
+</html>
