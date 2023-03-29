@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' type='text/css' href='fonts/linuxlibertine/stylesheet.css' />
+<link rel='stylesheet' type='text/css' href='fonts/linuxbiolinum/stylesheet.css' />
+
+<style>
+body {
+  background-color:white;
+  color:black;
+  font-family:"Linux Libertine", "Times", "Times New Roman", serif;
+  font-size:18pt;
+  line-height: 24pt;
+  text-align:justify;
+}
+.container {
+    margin-top: 10%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    max-width: 1000px;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+}
+
+a:hover {
+    border-bottom: 4px solid black;
+}
+
+em {
+    font-style:italic;
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP5KE3CKS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZP5KE3CKS3');
+</script>
+
+<title>DKLs.info</title>
+</head>
+<body>
+<div class="container">
+    <h1>DKLs.info</h1>
+    <p>This website collects information and resources related to the threshold ECDSA signing schemes of <a target="_blank" href="https://jackdoerner.net">Jack Doerner</a>, <a target="_blank" href="https://www.ykondi.net/">Yashvanth Kondi</a>, <a target="_blank" href="https://www.eysalee.com/">Eysa Lee</a>, and <a href="https://shelat.khoury.northeastern.edu/" target="_blank">abhi shelat</a>, otherwise known as DKLs. As of May 2023, we have a new paper available! We present a three-round protocol for threshold ECDSA signing with malicious security against a dishonest majority, which information-theoretically UC-realizes a standard threshold signing functionality, assuming ideal commitment and two-party multiplication primitives. You may find a complete description of the protocol, along with a full proof of security and closed form cost analysis, in eprint <a target="_blank" href="https://eprint.iacr.org/2023/765">2023/765</a>.</p>
+
+    <p>Our new protocol was originally announced (in a now-superseded five-round variation) at IACR Real World Crypto 2023, as part of a talk that focused on the things we have learned via deployments and implementations of our previous works on this topic. The talk is available <a href="https://youtu.be/-d0Ny7NAG-w?t=2160" target="_blank">online</a>. We consider our original <em>t</em>-of-<em>n</em> and  2-of-<em>n</em> threshold ECDSA signing protocols to be subsumed. Nevertheless, they are available online as eprint numbers <a target="_blank" href="https://eprint.iacr.org/2019/523">2019/523</a> and <a target="_blank" href="https://eprint.iacr.org/2018/499">2018/499</a> respectively.</p>
+</div> 
+</body>
+</html>
