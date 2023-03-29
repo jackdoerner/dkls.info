@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' type='text/css' href='linuxlibertine/stylesheet.css' />
+<link rel='stylesheet' type='text/css' href='linuxbiolinum/stylesheet.css' />
+
+<style>
+body {
+  background-color:white;
+  color:black;
+  font-family:"Linux Libertine", "Times", "Times New Roman", serif;
+  font-size:18pt;
+  line-height: 24pt;
+  text-align:justify;
+}
+.container {
+    margin-top: 10%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    max-width: 1000px;
+}
+
+h1 {
+    font-family:"Linux Biolinum", "Ariel", sans-serif;
+}
+
+h3 {
+    font-family:"Linux Biolinum", "Ariel", sans-serif;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+}
+
+a:hover {
+    border-bottom: 4px solid black;
+}
+
+em {
+    font-style:italic;
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP5KE3CKS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZP5KE3CKS3');
+</script>
+
+<title>DKLs.info</title>
+</head>
+<body>
+<div class="container">
+    <h1>DKLs.info</h1>
+    <p>This website collects information and resources related to the threshold ECDSA signing schemes of <a target="_blank" href="https://jackdoerner.net">Jack Doerner</a>, <a target="_blank" href="https://www.ykondi.net/">Yashvanth Kondi</a>, <a target="_blank" href="https://www.eysalee.com/">Eysa Lee</a>, and <a href="https://shelat.khoury.northeastern.edu/" target="_blank">abhi shelat</a>, otherwise known as DKLs. As of May 2023, we have a new paper available! We present a three-round protocol for threshold ECDSA signing with malicious security against a dishonest majority, which information-theoretically UC-realizes a standard threshold signing functionality, assuming ideal commitment and two-party multiplication primitives. You may find a complete description of the protocol, along with a full proof of security and closed-form cost analysis, in eprint <a target="_blank" href="https://eprint.iacr.org/2023/765">2023/765</a>.</p>
+
+    <p>Our new protocol was originally announced (in a now-superseded five-round variation) at IACR Real World Crypto 2023, as part of a talk that focused on the things we have learned via deployments and implementations of our previous works on this topic. The talk is available <a href="https://youtu.be/-d0Ny7NAG-w?t=2160" target="_blank">online</a>. We consider our original <em>t</em>-of-<em>n</em> and  2-of-<em>n</em> threshold ECDSA signing protocols to be subsumed. Nevertheless, the original <em>t</em>-of-<em>n</em> protocol is available as eprint <a target="_blank" href="https://eprint.iacr.org/2019/523">2019/523</a>, and the 2-of-<em>n</em> protocol is available in revised form as eprint <a target="_blank" href="https://eprint.iacr.org/2018/499">2018/499</a>.</p>
+
+    <p>In addition to our works on threshold ECDSA, we were joined by <a href="https://www.khoury.northeastern.edu/home/lakyahtyner/index.html" target="_blank">LaKyah Tyner</a> for a paper on threshold BBS+ signing, which is useful for distributed anonymous credential issuance. This paper shares many techniques with our other works. It is available as eprint <a target="_blank" href="https://eprint.iacr.org/2023/602">2023/602</a>.</p>
+
+    <h3>Useful Auxilliary Papers and Techniques</h3>
+    <ul>
+        <li><em>Refresh When You Wake Up: Proactive Threshold Wallets with Offline Devices</em> (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>). This work proposes a mechanism that allows the parties in many 2-of-<em>n</em> ECDSA protocols (including ours) to <em>proactively</em> refresh their shares of the signing key and their other secret state, even if some of those parties are offline at the time of refresh. This provides a defense against so-called <em>mobile</em> adversaries.</li>
+    </ul>
+
+
+    <h3>Our Proof-of-Concept Open Source Implementations</h3>
+    <p>We note that our in-house implementations are <em>only</em> proofs of concept. We make <em>no claim</em> that they are free of bugs or secure in real-world use, and any consequences arising from their use rest with the user.</p>
+    <ul>
+        <li>DKLs23: Rust code coming soon.</li>
+        <li>DKLsT23: Rust code coming soon.</li>
+        <li>DKLs19 + DKLs18 with Proactive Key Refresh (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>): <a href="https://gitlab.com/neucrypt/mpecdsa">Rust code available</a> under the BSD license. Note that this library uses the KOS OT-extension protocol (<a href="https://eprint.iacr.org/2015/546" target="_blank">2015/546</a>), which we consider to be deprecated (see <a href="https://eprint.iacr.org/2022/192" target="_blank">2022/192</a>).</li>
+    </ul>
+
+    <h3>Third-Party Open Source Implementations</h3>
+    <ul>
+        <li><a href="https://www.silencelaboratories.com/" target="_blank">Silence Laboratories</a>: DKLs23 with Proactive Key Refresh (<a href="https://eprint.iacr.org/2019/1328" target="_blank">2019/1328</a>). <a href="https://github.com/silence-laboratories/dkls23" target="_blank">Rust code</a> available under a custom non-commercial license. Also available on <a href="https://www.npmjs.com/package/@silencelaboratories/dkls-wasm-ll-node" target="_blank">NPM</a>. Trail of Bits <a href="https://github.com/silence-laboratories/dkls23/blob/main/docs/ToB-SilenceLaboratories_2024.04.10.pdf">audit report</a> available.</li>
+        <li><a href="https://bealore.com/" target="_blank">Alore/0xCarbon</a>: DKLs23. <a href="https://github.com/0xCarbon/DKLs23" target="_blank">Rust code</a> available under Apache or MIT license. Also available on <a href="https://www.npmjs.com/package/@0xcarbon/dkls23-wasm" target="_blank">NPM</a>.</li>
+        <li><a href="https://www.dock.io/" target="_blank">Dock Network</a>: DKLsT23. <a href="https://github.com/docknetwork/crypto/tree/main/bbs_plus/src/threshold" target="_blank">Rust code</a> available under the Apache license.</li>
+        <li><a href="https://www.taurushq.com/" target="_blank">Taurus Group</a>: DKLs18. <a href="https://github.com/taurusgroup/multi-party-sig/tree/main/protocols/doerner" target="_blank">Go code</a> available under the Apache license.</li>
+        <li><a href="https://www.coinbase.com/" target="_blank">Coinbase</a>: DKLs18. <a href="https://github.com/coinbase/kryptology/tree/master/pkg/tecdsa/dkls/v1" target="_blank">Go code</a> available under the Apache license. Marked as deprecated by authors.</li>
+    </ul>
+
+    <h3>Known Proprietary Implementations</h3>
+    <ul>
+        <li>
+            <a href="https://www.blockdaemon.com/" target="_blank">BlockDaemon</a>: DKLs23 + DKLs19. <a href="https://web.archive.org/web/20250429114847/https://builder-vault-tsm.docs.blockdaemon.com/docs/mpc-protocols" target="_blank"> Information available.</a>
+        </li>
+        <li>
+            <a href="https://utila.io/" target="_blank">Utila</a>: DKLs23. <a href="https://web.archive.org/web/20250123001949/https://utila.io/blog/how-we-implemented-our-mpc-ecdsa-protocol-utila/" target="_blank">Information available.</a>
+        </li>
+        <li>
+            <a href="https://vultisig.com/" target="_blank">Vultisig</a>: DKLs23 (derived from Silence Laboratories implementation). <a href="https://web.archive.org/web/20250603161529/https://docs.vultisig.com/threshold-signature-scheme/threshold-signature-schemes-used-by-vultisig" target="_blank">Information available.</a>
+        </li>
+        <li>
+            <a href="https://copper.co/" target="_blank">Copper</a>: DKLs23.
+        </li>
+        <li>
+            <a href="https://www.litprotocol.com/" target="_blank">Lit Protocol</a>: DKLsT23.
+        </li>
+        <li>
+            <a href="https://www.sodot.dev/" target="_blank">Sodot</a>: DKLs19. <a href="https://web.archive.org/web/20250603154502/https://www.sodot.dev/product/mpc-infrastructure" target="_blank">Information available</a> (see also: <a href="https://web.archive.org/web/20240413034956/https://docs.sodot.dev/docs/cryptography/signature-scheme" target="_blank">previous documentation</a>).
+        <li>
+            <a href="https://web3auth.io/" target="_blank">Web3auth</a>: DKLs19. <a href="https://web.archive.org/web/20250603154943/https://web3auth.io/docs/sdk/mpc-core-kit/mpc-core-kit-js/signing" target="_blank">Information available.</a>
+        </li>
+        <li>
+            <a href="https://usa.visa.com" target="_blank">Visa</a>: DKLs19.
+        </li>
+    </ul>
+    <br/>
+    <p style="text-align: center;"><span style="color: #BBBBBB;">
+        <span style="color:#888888;">D</span>ishonest <span style="color:#888888;">K</span>oalas <span style="color:#888888;">L</span>eak <span style="color:#888888;">s</span>ecrets<br/>
+        <span style="color:#888888;">D</span>ull <span style="color:#888888;">K</span>nives <span style="color:#888888;">L</span>eave <span style="color:#888888;">s</span>cars<br/>
+        <span style="color:#888888;">D</span>id <span style="color:#888888;">K</span>rushchev <span style="color:#888888;">L</span>ove <span style="color:#888888;">s</span>treetscapes?<br/>
+        <span style="color:#888888;">D</span>ie <span style="color:#888888;">K</span>inder <span style="color:#888888;">L</span>ieben <span style="color:#888888;">s</span>pinnen<br/>
+        <span style="color:#888888;">D</span>on't <span style="color:#888888;">K</span>eep <span style="color:#888888;">L</span>osing <span style="color:#888888;">s</span>leep</span><br/><br/>
+        Last Updated June 3, 2025<br/><br/>
+    </p>
+</div> 
+</body>
+</html>
